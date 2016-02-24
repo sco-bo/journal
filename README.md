@@ -1,4 +1,4 @@
-###Journal
+#Journal
 
-#About
+###About
 This is a journaling app
