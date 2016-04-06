@@ -1,21 +1,16 @@
 class User < ActiveRecord::Base
-  attr_accessor :token
-  validates :username, presence: true, 
-            length: {maximum: 50}, 
-            uniqueness: {case_sensitive: false}
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
-  validates :password, presence: true, 
-            length: {minimum: 6}, 
-            allow_nil: true
-  has_secure_password
+  validates_uniqueness_of :username
 
-  #Return random token
-  def User.new_token
-    SecureRandom.urlsafe_base64
+  def email_required? 
+    false
   end
 
-  def remember
-    self.token = User.new_token
-    self.remember_token = Digest::SHA1.hexdigest(token)
+  def email_changed? 
+    false
   end
 end

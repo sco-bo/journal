@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  root 'static_pages#home'
+  devise_for :users
+  
+  devise_scope :user do 
+    unauthenticated do 
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
 
-  get 'join' => 'users#new'
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
-  resources :users
+    authenticated :user do 
+      root 'static_pages#home', as: :authenticated_root
+    end
+  end
 end
