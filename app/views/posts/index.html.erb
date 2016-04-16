@@ -1,0 +1,18 @@
+<h1>Posts</h1>
+
+<table>
+  <tr>
+    <th>Post</th>
+    <th>Author</th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @posts.each do |post| %>
+    <tr>
+      <% if !post.private? %>
+      <td><%= link_to truncate(post.decrypt), post_path(post) %></td>
+      <td><%= post.user.username %></td>
+      <% end %>
+  <% end %>
+  </tr>
+</table>

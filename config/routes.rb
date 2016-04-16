@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   
   devise_scope :user do 
@@ -10,4 +11,6 @@ Rails.application.routes.draw do
       root 'static_pages#home', as: :authenticated_root
     end
   end
+
+  resources :posts
 end
