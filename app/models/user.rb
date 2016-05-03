@@ -7,13 +7,13 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
 
   has_many :posts
-  
+
   def public_posts
-    self.posts.where('post_type == ?', "public")
+    self.posts.where(private: false)
   end
 
   def private_posts
-    self.posts.where('post_type == ?', "private")
+    self.posts.where(private: true)
   end
 
   def email_required? 

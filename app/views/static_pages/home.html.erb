@@ -2,4 +2,7 @@
 
 <p><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></p>
 
+<p><%= link_to 'Create Post', new_post_path %></p>
+<p><%= link_to 'My Posts', user_path(current_user) %></p>
+
 

@@ -23,10 +23,21 @@ class PostsController < ApplicationController
   end
 
   def update
+    if @post.update_attributes(post_params)
+      flash[:success] = "Post updated"
+    else
+      render :edit
+    end
+  end
+
+  def edit 
     @post = Post.find(params[:id])
   end
 
   def destroy
+    Post.find(params[:id]).destroy
+    flash[:success] = "Post deleted" 
+    redirect_to authenticated_root
   end
 
   private

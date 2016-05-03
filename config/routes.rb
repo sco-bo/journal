@@ -8,9 +8,11 @@ Rails.application.routes.draw do
     end
 
     authenticated :user do 
-      root 'static_pages#home', as: :authenticated_root
+      root 'posts#index', as: :authenticated_root
     end
   end
 
   resources :posts
+
+  match 'user/:id', :to => "user#show", :as => :user, :via => :get
 end
