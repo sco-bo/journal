@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   before_save :encrypt_body 
   attr_accessor :crypt
   belongs_to :user
+  include PublicActivity::Common
 
   # scope :public_posts, -> { where('post_type == ?', "public") }
   # scope :private_posts, -> { where('post_type == ?', "private") }

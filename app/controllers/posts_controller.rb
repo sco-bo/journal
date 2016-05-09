@@ -11,6 +11,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
+      @post.create_activity :create, owner: current_user if !@post.private?
       flash[:success] = "Post created!"
       redirect_to @post
     else
@@ -35,9 +36,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    Post.find(params[:id]).destroy
+    @post = Post.find(params[:id])
+    @post.create_activity :destroy, owner: current_user
+    @post.destroy
     flash[:success] = "Post deleted" 
-    redirect_to authenticated_root
+    redirect_to :back
   end
 
   private

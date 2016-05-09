@@ -1,8 +1,26 @@
-<h1>Welcome to the Journal</h1>
 
 <p><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></p>
 
-<p><%= link_to 'Create Post', new_post_path %></p>
 <p><%= link_to 'My Posts', user_path(current_user) %></p>
 
+<div id="container">
+  <div id="left-div">
+    <div id="table-header">
+      <div id="entries">
+        <strong>Entries</strong>
+      </div>
+      <div id="new-entry"> 
+        <%= link_to 'New Entry', new_post_path, class:"unstyled-link" %>
+      </div>
+    </div>
+      <div id="posts-table">
+        <% current_user.posts.each do |post| %>
+          <p><%= link_to truncate(post.decrypt), post_path(post) %><p>
+        <% end %>
+      </div>
 
+  </div>
+  <div id="right-div">
+
+  </div>
+</div>

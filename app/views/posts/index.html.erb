@@ -1,15 +1,23 @@
 <div id="container">
-  <div>
+  <div id="left-div">
+    <div id="table-header">
+      <div id="entries">
+        <strong>Entries</strong>
+      </div>
+      <div id="new-entry"> 
+        <%= link_to 'New Entry', new_post_path, class:"unstyled-link" %>
+      </div>
+    </div>
+      <div id="posts-feed"> 
+      </div>
 
   </div>
-  
+  <div id="right-div">
+
+  </div>
 </div>
 
-<h1>Posts</h1>
-
-
-<p><%= link_to 'Create Post', new_post_path %></p>
-<p><%= link_to 'My Posts', user_path(current_user) %></p>
+<p><%# link_to 'My Posts', user_path(current_user) %></p>
 
 <table>
   <tr>
@@ -18,14 +26,14 @@
     <th colspan="2"></th>
   </tr>
 
-  <% @posts.each do |post| %>
+  <%# @posts.each do |post| %>
     <tr>
-      <% if !post.private? %>
-      <td><%= link_to truncate(post.decrypt), post_path(post) %></td>
-      <td><%= link_to post.user.username, user_path(post.user) %></td>
-      <% end %>
-  <% end %>
+      <%# if !post.private? %>
+      <td><%# link_to truncate(post.decrypt), post_path(post) %></td>
+      <td><%# link_to post.user.username, user_path(post.user) %></td>
+      <%# end %>
+  <%# end %>
   </tr>
-</table>
+</table> -->
 
-<p><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></p>
+<!-- <p><%# link_to 'Sign out', destroy_user_session_path, method: :delete %></p> -->

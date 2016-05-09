@@ -1,7 +1,79 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box; 
+}
+
 #container {
   width: auto;
-  height: auto;
-  margin-right: 8%; 
-  margin-left: 8%;
+  height: 2000px;
+  margin-right: 5%; 
+  margin-left: 5%;
   background-color: red;
+  padding: 20px;
 }
+
+#left-div {
+  float: left;
+  width: 60%;
+  height: 100%;
+  background-color: blue;
+}
+
+#right-div {
+  float: right;
+  height: 100%;
+  width: 40%; 
+  background-color: gray;
+}
+
+#table-header {
+  margin: 10px 2% 0px 2%;
+  width: auto;
+  height: 105px;
+  background-color: #ffe4e1;
+}
+
+#posts-feed {
+  width: auto;
+  margin-right: 2%;
+  margin-left: 2%;
+  height: 1000px;
+  background-color: #ba55d3;
+  border-top: 3px solid #98fb98;
+}
+
+#entries {
+  display: inline-block;
+  font-family: helvetica;
+  font-size: 13vmin;
+  text-decoration: underline;
+}
+
+#new-entry {
+  padding-top: 20px;
+  margin: 10px 5px 0px 20px;
+  display: inline-block;
+  float: right;
+  vertical-align: top;
+  text-align: center;
+  width: 40%;
+  height: 65%;
+  border-radius: 25px;
+  background-color: #32cd32;
+}
+
+a.unstyled-link {
+  color: grey;
+  font-family: helvetica;
+  font-size: 5vmin;
+  text-decoration: none;
+  
+}
+
+
+
+
+
+
+
