@@ -1,8 +1,9 @@
 created a post 
-
 <% if activity.trackable %>
   <%= link_to truncate(activity.trackable.decrypt), activity.trackable %>
-  <%= time_ago_in_words(activity.trackable.updated_at) %> ago
+  <div id="time-ago">
+    <%= time_ago_in_words(activity.trackable.updated_at) %> ago
+  </div>
 <% else %>
   which has since been removed
 <% end %>

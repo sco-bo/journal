@@ -1,8 +1,6 @@
 
 <p><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></p>
 
-<p><%= link_to 'My Posts', user_path(current_user) %></p>
-
 <div id="container">
   <div id="left-div">
     <div id="table-header">
@@ -10,17 +8,36 @@
         <strong>Entries</strong>
       </div>
       <div id="new-entry"> 
-        <%= link_to 'New Entry', new_post_path, class:"unstyled-link" %>
+        <%= link_to 'New Entry', new_post_path %>
       </div>
     </div>
-      <div id="posts-table">
-        <% current_user.posts.each do |post| %>
-          <p><%= link_to truncate(post.decrypt), post_path(post) %><p>
+      <div id="posts-feed">
+        <% @posts.each do |post| %>
+          <div id="post-body">
+            <%= link_to truncate(post.decrypt), post_path(post) %>
+          </div>
         <% end %>
       </div>
 
   </div>
   <div id="right-div">
-
+    <% @activities.each do |activity| %>
+      <div id="activity-feed-body">
+        <% case activity.key %>
+        <% when  "post.create" %>
+          <i class="fi-pencil"></i>
+        <% when "post.destroy" %>
+          <i class="fi-trash"></i>
+        <% when "post.edit" %>
+          <i class="fi-clipboard"></i>
+        <% else %>
+          <i class="fi-power"></i>
+        <% end %>
+        <div id="feed-message">
+          <%= link_to activity.owner.username, activity.owner if activity.owner %>
+          <%= render_activity activity %>
+        </div>
+    </div>
+    <% end %>
   </div>
 </div>

@@ -1,3 +1,5 @@
+@import 'foundation-icons';
+
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   border-radius: $radius;
@@ -9,7 +11,7 @@
   height: 2000px;
   margin-right: 5%; 
   margin-left: 5%;
-  background-color: red;
+  // background-color: red;
   padding: 20px;
 }
 
@@ -17,30 +19,61 @@
   float: left;
   width: 60%;
   height: 100%;
-  background-color: blue;
+  // background-color: blue;
 }
 
 #right-div {
   float: right;
   height: 100%;
   width: 40%; 
-  background-color: gray;
+  background-color: white;
+  a {
+    text-decoration: none;
+    color: blue;
+  }
+}
+
+#activity-feed-body {
+  padding: 10px;
+  border-top: 1px solid #f1f1f1;
+  
+  i {
+    display: inline-block;
+    font-size: 20px;
+  }
+  #feed-message {
+    display: inline-block;
+    font-size: 13px; 
+    font-family: helvetica;
+    font-weight: bold;
+  }
+  #time-ago {
+  font-weight: 100;
+  color: #bbb;
+  }
 }
 
 #table-header {
   margin: 10px 2% 0px 2%;
   width: auto;
   height: 105px;
-  background-color: #ffe4e1;
+  background-color: #F5F5F5;
 }
 
 #posts-feed {
   width: auto;
-  margin-right: 2%;
-  margin-left: 2%;
+  margin: 5px 2% 0px 2%;
   height: 1000px;
-  background-color: #ba55d3;
-  border-top: 3px solid #98fb98;
+  background-color: #FAFAFA;
+  border-radius: 5px; 
+  a {
+    text-decoration: none;
+    font-family: helvetica;
+    color: blue;
+  }
+  #post-body {
+    padding: 10px;
+  }
 }
 
 #entries {
@@ -61,15 +94,14 @@
   height: 65%;
   border-radius: 25px;
   background-color: #32cd32;
+  a {
+    color: grey;
+    font-family: helvetica;
+    font-size: 5vmin;
+    text-decoration: none;
+  }
 }
 
-a.unstyled-link {
-  color: grey;
-  font-family: helvetica;
-  font-size: 5vmin;
-  text-decoration: none;
-  
-}
 
 
 

@@ -6,6 +6,7 @@ gem 'rails', '4.2.4'
 gem 'random_username'
 gem 'devise'
 gem 'public_activity'
+gem 'foundation-icons-sass-rails'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

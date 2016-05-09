@@ -1,9 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
-  end
-
-  def index
-    @posts = Post.all 
+    @posts = current_user.posts.all.order("updated_at desc")
+    @activities = PublicActivity::Activity.order("created_at desc")
   end
 end

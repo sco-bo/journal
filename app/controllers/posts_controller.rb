@@ -24,6 +24,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
     if @post.update_attributes(post_params)
       flash[:success] = "Post updated"
     else
@@ -37,10 +38,10 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    @post.create_activity :destroy, owner: current_user
+    @post.create_activity :destroy, owner: current_user if !@post.private
     @post.destroy
     flash[:success] = "Post deleted" 
-    redirect_to :back
+    redirect_to :authenticated_root
   end
 
   private
