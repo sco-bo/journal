@@ -7,15 +7,15 @@
       <div id="entries">
         <strong>Entries</strong>
       </div>
-      <div id="new-entry"> 
-        <%= link_to 'New Entry', new_post_path %>
-      </div>
+        <%= link_to new_post_path do %>
+          <div id="new-entry">New Entry</div>
+        <% end %>
     </div>
       <div id="posts-feed">
         <% @posts.each do |post| %>
-          <div id="post-body">
-            <%= link_to truncate(post.decrypt), post_path(post) %>
-          </div>
+            <%= link_to post_path(post) do %>
+              <div id="post-body"><%= truncate(post.decrypt) %></div>
+            <% end %>
         <% end %>
       </div>
 

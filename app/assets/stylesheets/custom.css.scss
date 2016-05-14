@@ -7,17 +7,18 @@
 }
 
 #container {
-  width: auto;
+  width: 1130px;
   height: 2000px;
-  margin-right: 5%; 
-  margin-left: 5%;
+  margin: 35px; 
   // background-color: red;
   padding: 20px;
+  overflow: hidden;
+  font-family: helvetica
 }
 
 #left-div {
   float: left;
-  width: 60%;
+  width: 650px;
   height: 100%;
   // background-color: blue;
 }
@@ -25,11 +26,11 @@
 #right-div {
   float: right;
   height: 100%;
-  width: 40%; 
+  width: 440px; 
   background-color: white;
   a {
     text-decoration: none;
-    color: blue;
+    color: #00BFFF;
   }
 }
 
@@ -44,7 +45,6 @@
   #feed-message {
     display: inline-block;
     font-size: 13px; 
-    font-family: helvetica;
     font-weight: bold;
   }
   #time-ago {
@@ -54,53 +54,66 @@
 }
 
 #table-header {
-  margin: 10px 2% 0px 2%;
   width: auto;
   height: 105px;
   background-color: #F5F5F5;
+  border-radius: 5px;
 }
 
 #posts-feed {
   width: auto;
-  margin: 5px 2% 0px 2%;
+  margin-top: 5px;
   height: 1000px;
   background-color: #FAFAFA;
   border-radius: 5px; 
   a {
     text-decoration: none;
-    font-family: helvetica;
-    color: blue;
+    color: #00BFFF;
   }
   #post-body {
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
     padding: 10px;
+    font-size: 35px;
+  }
+  #post-body:hover {
+    background-color: darken(#F5F5F5, 5%);
   }
 }
 
 #entries {
   display: inline-block;
-  font-family: helvetica;
-  font-size: 13vmin;
+  font-size: 95px;
   text-decoration: underline;
 }
 
 #new-entry {
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
   padding-top: 20px;
   margin: 10px 5px 0px 20px;
   display: inline-block;
   float: right;
   vertical-align: top;
   text-align: center;
-  width: 40%;
-  height: 65%;
+  width: 200px;
+  height: 65px;
   border-radius: 25px;
   background-color: #32cd32;
-  a {
-    color: grey;
-    font-family: helvetica;
-    font-size: 5vmin;
-    text-decoration: none;
-  }
+  color: #F5F5F5;
+  font-size: 30px;
+  text-decoration: none;
 }
+
+#new-entry:hover {
+    background-color: darken(#32cd32, 5%);
+  }
 
 
 
