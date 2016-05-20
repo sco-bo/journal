@@ -1,0 +1,20 @@
+<%= form_for @post, id: "new-post", remote: true do |f| %>
+  
+  <p>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  </p>
+
+  <p>
+    <%= f.label :private, 'Public', value: false %>
+  <%= f.radio_button :private, false, checked: true %>
+  </p>
+
+  <p>
+    <%= f.label :private, 'Private', value: true %>
+  <%= f.radio_button :private, true %>
+  </p>
+
+  <%= f.submit 'Create post' %>
+
+<% end %>

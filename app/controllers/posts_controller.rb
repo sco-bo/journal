@@ -10,12 +10,15 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
 
-    if @post.save
-      @post.create_activity :create, owner: current_user if !@post.private?
-      flash[:success] = "Post created!"
-      redirect_to @post
-    else
-      render 'new'
+    respond_to do |format|
+      if @post.save
+        @post.create_activity :create, owner: current_user if !@post.private?
+        flash[:success] = "Post created!"
+        format.html { redirect_to :back }
+        format.js
+      else
+        render 'new'
+      end
     end
   end
 
