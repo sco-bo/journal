@@ -7,6 +7,7 @@ gem 'random_username'
 gem 'devise'
 gem 'public_activity'
 gem 'foundation-icons-sass-rails'
+gem 'will_paginate'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

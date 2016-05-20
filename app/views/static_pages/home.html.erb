@@ -12,6 +12,7 @@
     </div>
     <div id="posts-feed">
       <%= render @posts %>
+      <%= will_paginate @posts, param_name: 'posts_page' %>
     </div>
   </div>
   <div id="right-div">
@@ -33,5 +34,6 @@
         </div>
     </div>
     <% end %>
+    <%= will_paginate @activities, param_name: 'activities_page' %>
   </div>
 </div>
