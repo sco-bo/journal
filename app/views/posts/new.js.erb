@@ -1,1 +1,2 @@
-$('#table-header').after('<%= j render("form") %>')
+$('form').remove();
+$('#table-header').after('<%= j render("form") unless @form %>')
