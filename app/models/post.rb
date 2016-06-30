@@ -4,6 +4,9 @@ class Post < ActiveRecord::Base
   belongs_to :user
   include PublicActivity::Common
 
+  validates_presence_of :user
+  validates :private, inclusion: [true, false]
+
   # scope :public_posts, -> { where('post_type == ?', "public") }
   # scope :private_posts, -> { where('post_type == ?', "private") }
 

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates_uniqueness_of :username
+  validates_presence_of :username
 
   has_many :posts
 
@@ -14,13 +15,5 @@ class User < ActiveRecord::Base
 
   def private_posts
     self.posts.where(private: true)
-  end
-
-  def email_required? 
-    false
-  end
-
-  def email_changed? 
-    false
   end
 end
